@@ -15,7 +15,9 @@ namespace OOP_Kelompok2
 
         static void Start()
         {
-
+            TestClass test1 = new TestClass(20, 49.34f);
+            Console.WriteLine(test1.num1);
+            Console.WriteLine(test1.num2);
         }
     }
 }
