@@ -26,8 +26,8 @@ namespace OOP_Kelompok2
                                         .AddName("John")
                                         .AddHealth(100)
                                         .Build();
-            
-            Console.WriteLine("Player created: Name={player1.name}, Health={player1.health}");
+            Console.WriteLine("Name: " + player1.name);
+            Console.WriteLine("Health: " + player1.health);
         }
 
         static void Update()
