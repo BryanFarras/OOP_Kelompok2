@@ -10,14 +10,29 @@ namespace OOP_Kelompok2
     {
         static void Main(string[] args)
         {
-            Start();
+            Awake();  
+            Start();  
+            Update(); 
+        }
+
+        static void Awake()
+        {
+            Console.WriteLine("Game is initializing...");
         }
 
         static void Start()
         {
-            TestClass test1 = new TestClass(20, 49.34f);
-            Console.WriteLine(test1.num1);
-            Console.WriteLine(test1.num2);
+            Player player1 = PlayerBuild.GetInstance()
+                                        .AddName("John")
+                                        .AddHealth(100)
+                                        .Build();
+            
+            Console.WriteLine("Player created: Name={player1.name}, Health={player1.health}");
+        }
+
+        static void Update()
+        {
+            Console.WriteLine("Game is running...");
         }
     }
 }

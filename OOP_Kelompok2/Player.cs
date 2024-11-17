@@ -1,33 +1,54 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP_Kelompok2
 {
     public class Player
     {
-        public string name{get; set;}
-        public float health{get; set;}
-        
+        public string name { get; set; }
+        public float health { get; set; }
     }
 
     public class PlayerBuild
     {
-        private Player player = new Player();
-        public PlayerBuild addName (string name){
+        private static PlayerBuild instance;
+        private static readonly object lockObj = new object();
+
+        private Player player = new Player(); 
+
+        private PlayerBuild() { }
+
+        public static PlayerBuild GetInstance()
+        {
+            if (instance == null)
+            {
+                lock (lockObj)
+                {
+                    if (instance == null)
+                    {
+                        instance = new PlayerBuild();
+                    }
+                }
+            }
+            return instance;
+        }
+
+        public PlayerBuild AddName(string name)
+        {
             player.name = name;
             return this;
         }
 
-        public PlayerBuild addHealth(float health){
+        public PlayerBuild AddHealth(float health)
+        {
             player.health = health;
             return this;
         }
 
-        public Player build(){
-            return player;
+        public Player Build()
+        {
+            Player builtPlayer = player;
+            player = new Player(); // Reset player instance untuk build berikutnya
+            return builtPlayer;
         }
     }
 }
