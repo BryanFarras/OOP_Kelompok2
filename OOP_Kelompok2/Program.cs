@@ -37,6 +37,7 @@ namespace OOP_Kelompok2
                                         .Build();
 
             player1.DisplayStatus();
+            
         }
 
         static void Update()

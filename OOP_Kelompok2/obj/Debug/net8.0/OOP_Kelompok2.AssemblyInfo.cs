@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OOP_Kelompok2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+689923ba11d2eae21d1d01c900036663077143c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d488bb1fa50e502228760427f129bc637905dc0")]
 [assembly: System.Reflection.AssemblyProductAttribute("OOP_Kelompok2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OOP_Kelompok2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
