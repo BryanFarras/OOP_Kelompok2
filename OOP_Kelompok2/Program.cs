@@ -21,21 +21,22 @@ namespace OOP_Kelompok2
         {
             
             Console.WriteLine("Game is initializing...");
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            // Memunculkan form utama
-            Application.Run(new MainForm());
         }
 
         static void Start()
         {
             Player player1 = PlayerBuild.GetInstance()
-                                        .AddName("John")
-                                        .AddHealth(100)
+                                        .AddName("Excelcus")
+                                        .AddHeart(100)
+                                        .AddJuice(50)
+                                        .AddAttack(30)
+                                        .AddDefense(20)
+                                        .AddSpeed(15)
+                                        .AddLuck(5)
+                                        .AddHitRate(90)
                                         .Build();
-            Console.WriteLine("Name: " + player1.name);
-            Console.WriteLine("Health: " + player1.health);
+
+            player1.DisplayStatus();
         }
 
         static void Update()
