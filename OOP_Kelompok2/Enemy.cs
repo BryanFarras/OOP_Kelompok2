@@ -9,7 +9,7 @@ namespace OOP_Kelompok2
 {
     public class Enemy
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Heart { get; set; }
         public int AttackPower { get; set; }
         public Emotion EmotionType { get; set; }

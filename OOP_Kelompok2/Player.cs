@@ -4,7 +4,7 @@ namespace OOP_Kelompok2
 {
     public class Player
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Heart { get; set; } // Nyawa dari karakter
         public int Juice { get; set; } // Magic point
         public int Attack { get; set; } // Damage yang diberikan
@@ -29,7 +29,7 @@ namespace OOP_Kelompok2
 
     public class PlayerBuild
     {
-        private static PlayerBuild instance;
+        private static PlayerBuild? instance;
         private static readonly object lockObj = new object();
 
         private Player player = new Player();
