@@ -1,9 +1,11 @@
+using System;
+
 namespace OOP_Kelompok2
 {
     public interface IAttackStrategy
-        {
-            void Execute(Player player, Enemy enemy);
-        }
+    {
+        void Execute(Player player, Enemy enemy);
+    }
 
     public class NormalAttack : IAttackStrategy
     {

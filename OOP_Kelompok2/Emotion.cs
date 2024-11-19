@@ -1,4 +1,3 @@
-
 namespace OOP_Kelompok2
 {
     public enum Emotion
