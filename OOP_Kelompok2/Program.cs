@@ -37,6 +37,8 @@ namespace OOP_Kelompok2
             Console.WriteLine("\n=== Player Status ===");
             player1.DisplayStatus();
 
+            Story.Intro(player1);
+
             // Membuat musuh
             goblin = EnemyFactory.CreateEnemy("goblin");
         }
