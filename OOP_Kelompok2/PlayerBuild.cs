@@ -7,7 +7,7 @@ namespace OOP_Kelompok2
 
         private Player player = new Player();
 
-        private PlayerBuild() { }
+        public PlayerBuild() { }
 
         public static PlayerBuild GetInstance()
         {

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\OOP_Kuliah_Kelompok2\\OOP_Kelompok2\\OOP_Kelompok2.csproj": {}
+    "C:\\Kuliah\\OOP\\pak firdaus\\OOP_Kelompok2\\OOP_Kelompok2\\OOP_Kelompok2.csproj": {}
   },
   "projects": {
-    "E:\\OOP_Kuliah_Kelompok2\\OOP_Kelompok2\\OOP_Kelompok2.csproj": {
+    "C:\\Kuliah\\OOP\\pak firdaus\\OOP_Kelompok2\\OOP_Kelompok2\\OOP_Kelompok2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\OOP_Kuliah_Kelompok2\\OOP_Kelompok2\\OOP_Kelompok2.csproj",
+        "projectUniqueName": "C:\\Kuliah\\OOP\\pak firdaus\\OOP_Kelompok2\\OOP_Kelompok2\\OOP_Kelompok2.csproj",
         "projectName": "OOP_Kelompok2",
-        "projectPath": "E:\\OOP_Kuliah_Kelompok2\\OOP_Kelompok2\\OOP_Kelompok2.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\OOP_Kuliah_Kelompok2\\OOP_Kelompok2\\obj\\",
+        "projectPath": "C:\\Kuliah\\OOP\\pak firdaus\\OOP_Kelompok2\\OOP_Kelompok2\\OOP_Kelompok2.csproj",
+        "packagesPath": "C:\\Users\\rowen\\.nuget\\packages\\",
+        "outputPath": "C:\\Kuliah\\OOP\\pak firdaus\\OOP_Kelompok2\\OOP_Kelompok2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\rowen\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -36,8 +36,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -53,12 +54,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
