@@ -6,6 +6,7 @@ namespace OOP_Kelompok2
     {
         static Player? player1;
         static Enemy? goblin;
+        static Inventory? inventory;
 
         [STAThread]
         static void Main(string[] args)
@@ -18,32 +19,36 @@ namespace OOP_Kelompok2
         static void Awake()
         {
             Console.WriteLine("Game is initializing...");
+            MakePlayer();
         }
 
         static void Start()
         {
-            // Membuat player
+            StartingInventory();
+        }
+
+        static void MakePlayer()
+        {
             player1 = PlayerBuild.GetInstance()
-                        .AddName("Excelcus")
-                        .AddHeart(100)
-                        .AddJuice(50)
-                        .AddAttack(30)
-                        .AddDefense(20)
-                        .AddSpeed(15)
-                        .AddLuck(5)
-                        .AddHitRate(90)
-                        .Build();
+                                    .AddName("Excelcus")
+                                    .AddHeart(100)
+                                    .AddJuice(50)
+                                    .AddAttack(30)
+                                    .AddDefense(20)
+                                    .AddSpeed(15)
+                                    .AddLuck(5)
+                                    .AddHitRate(90)
+                                    .Build();
 
             Console.WriteLine("\n=== Player Status ===");
             player1.DisplayStatus();
-
-            // Membuat musuh
-            goblin = EnemyFactory.CreateEnemy("goblin");
         }
 
         static void Update()
         {
             BattleSystem battleSystem = new BattleSystem();
+            goblin = EnemyFactory.CreateEnemy("goblin");
+
             Console.WriteLine("\n=== Battle Start ===");
             goblin.DisplayStatus();
 
@@ -100,5 +105,16 @@ namespace OOP_Kelompok2
                 }
             }
         }
+
+        static void StartingInventory()
+        {
+            inventory.AddItem(new Potion());
+            inventory.AddItem(new AttackBoostDecorator(new Potion()));
+            inventory.AddItem(new EmotionChangerDecorator(new HappyCandy(), "Happy"));
+
+            Console.WriteLine("\n=== Player Status ===");
+            player1.DisplayStatus();
+        }
+
     }
 }
