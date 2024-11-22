@@ -1,3 +1,5 @@
+using System;
+
 namespace OOP_Kelompok2
 {
     public class EnemyFactory
@@ -39,7 +41,14 @@ namespace OOP_Kelompok2
                         EmotionType = Emotion.Neutral
                     };
                 default:
-                    throw new ArgumentException("Unknown enemy type.");
+                    Console.WriteLine($"Unknown enemy type: {enemyType}. Defaulting to a basic enemy.");
+                    return new Enemy
+                    {
+                        Name = "Unknown Entity",
+                        Heart = 30,
+                        AttackPower = 5,
+                        EmotionType = Emotion.Neutral
+                    };
             }
         }
     }

@@ -4,21 +4,21 @@ namespace OOP_Kelompok2
 {
     public class Program
     {
-        static Player? player1;
-        static Enemy? goblin;
-        static Inventory? inventory;
+        static Player player1 = null!;
+        static Inventory inventory = new Inventory(); 
 
         [STAThread]
         static void Main(string[] args)
         {
-            MainMenu.ShowMenu();
+            MainMenu.ShowMenu(); 
         }
 
         public static void StartGame()
         {
-            Awake();  
-            Start();  
-            Update(); 
+            Awake();
+            InitializeInventory(); 
+            Start();
+            Update();
         }
 
         static void Awake()
@@ -26,8 +26,20 @@ namespace OOP_Kelompok2
             Console.WriteLine("Game is initializing...");
         }
 
+        static void InitializeInventory()
+        {
+            
+            inventory.AddItem(new Potion());
+            inventory.AddItem(new AttackBoostDecorator(new Potion()));
+            inventory.AddItem(new EmotionChangerDecorator(new HappyCandy(), "Happy"));
+
+            Console.WriteLine("\n=== Inventory Initialized ===");
+            inventory.DisplayInventory();
+        }
+
         static void Start()
         {
+            
             player1 = new PlayerBuild()
                         .AddName("Dreamer")
                         .AddHeart(100)
@@ -42,39 +54,36 @@ namespace OOP_Kelompok2
             Console.WriteLine("\n=== Player Status ===");
             player1.DisplayStatus();
 
-            Console.Clear();
+            
             Story.Introduction(player1);
         }
 
         static void Update()
         {
-            BattleSystem battleSystem = new BattleSystem();
-            goblin = EnemyFactory.CreateEnemy("goblin");
+            
+            Story.StoryPath(player1);
 
-            Console.WriteLine("\n=== Battle Start ===");
-            goblin.DisplayStatus();
+            
+            Story.LevelUp(player1);
 
-            bool gameRunning = true;
+            
+            Story.FinalBossEncounter(player1);
+        }
 
-            while (gameRunning)
+        public static void UseInventoryItem()
+        {
+            Console.WriteLine("\n=== Inventory ===");
+            inventory.DisplayInventory();
+            Console.WriteLine("Choose an item to use (enter the number):");
+
+            int choice;
+            if (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice > inventory.Count)
             {
-                Console.WriteLine("Player is not initialized.");
+                Console.WriteLine("Invalid choice. Returning to battle.");
                 return;
             }
 
-            Story.StoryPath(player1); 
-            Story.FinalBossEncounter(player1); 
+            inventory.UseItem(choice - 1, player1); 
         }
-
-        static void StartingInventory()
-        {
-            inventory.AddItem(new Potion());
-            inventory.AddItem(new AttackBoostDecorator(new Potion()));
-            inventory.AddItem(new EmotionChangerDecorator(new HappyCandy(), "Happy"));
-
-            Console.WriteLine("\n=== Player Status ===");
-            player1.DisplayStatus();
-        }
-
     }
 }
