@@ -6,19 +6,27 @@ namespace OOP_Kelompok2
     {
         public static void Introduction(Player player)
         {
-            Console.WriteLine("You find yourself in a surreal dreamscape. Shadows flicker, and voices call to you...");
-            Console.WriteLine("\nChoose your reaction:");
-            Console.WriteLine("1. Follow the voices.");
-            Console.WriteLine("2. Ignore them and explore the dark corners.");
-            string? choice = Console.ReadLine();
+            //Console.WriteLine("You find yourself in a surreal dreamscape. Shadows flicker, and voices call to you...\n");
 
-            if (choice == "1")
+            string prompt = "You find yourself in a surreal dreamscape. Shadows flicker, and voices call to you...\nChoose your reaction:";
+            string[] options = { 
+                "Follow the voices.", 
+                "Ignore them and explore the dark corners." 
+                };
+            Menu dialogue = new Menu(prompt, options);
+            int choice = dialogue.Run();
+            // Console.WriteLine("\nChoose your reaction:");
+            // Console.WriteLine("1. Follow the voices.");
+            // Console.WriteLine("2. Ignore them and explore the dark corners.");
+            // string? choice = Console.ReadLine();
+        
+            if (choice == 0)
             {
                 Console.WriteLine("\nYou follow the voices, feeling a strange sense of comfort.");
                 player.EmotionType = Emotion.Happy;
                 Console.WriteLine("You feel happy! Current Emotion: " + player.EmotionType);
             }
-            else if (choice == "2")
+            else if (choice == 1)
             {
                 Console.WriteLine("\nIgnoring the voices, you feel a chill down your spine.");
                 player.Heart -= 5;
@@ -28,19 +36,22 @@ namespace OOP_Kelompok2
 
         public static void StoryPath(Player player)
         {
-            Console.WriteLine("\nAfter wandering, you encounter a forked path in the dreamscape...");
-            Console.WriteLine("1. Approach the broken clock tower.");
-            Console.WriteLine("2. Enter the desolate flower field.");
-            Console.WriteLine("3. Cross the foggy bridge.");
-            string? choice = Console.ReadLine();
+            string prompt = "\nAfter wandering, you encounter a forked path in the dreamscape...";
+            string[] options = {
+                "Approach the broken clock tower.",
+                "Enter the desolate flower field.",
+                "Cross the foggy bridge."
+                };
+            Menu dialogue = new Menu(prompt, options);
+            int choice = dialogue.Run();
 
             Enemy enemy;
-            if (choice == "1")
+            if (choice == 0)
             {
                 enemy = EnemyFactory.CreateEnemy("space ex");
                 Console.WriteLine("A familiar figure appears... It's the *Space Ex*!");
             }
-            else if (choice == "2")
+            else if (choice == 1)
             {
                 enemy = EnemyFactory.CreateEnemy("lost petal");
                 Console.WriteLine("A Lost Petal floats towards you, looking hostile!");
@@ -72,26 +83,29 @@ namespace OOP_Kelompok2
 
             while (battleOngoing)
             {
-                Console.WriteLine("\nChoose an action:");
-                Console.WriteLine("1. Normal Attack");
-                Console.WriteLine("2. Critical Attack");
-                Console.WriteLine("3. Emotion Attack");
-                Console.WriteLine("4. Dream Shroud (Unlocks at level 2)");
-                Console.WriteLine("5. Escape");
+                string prompt = "\nChoose an action:";
+                string[] options = {
+                    "Normal Attack",
+                    "Critical Attack",
+                    "Emotion Attack",
+                    "Dream Shroud (Unlocks at level 2)",
+                    "Escape"
+                    };
+                Menu dialogue = new Menu(prompt, options);
+                int choice = dialogue.Run();
 
-                string? choice = Console.ReadLine();
                 switch (choice)
                 {
-                    case "1":
+                    case 0:
                         battleSystem.SetAttackStrategy(new NormalAttack());
                         break;
-                    case "2":
+                    case 1:
                         battleSystem.SetAttackStrategy(new CriticalAttack());
                         break;
-                    case "3":
+                    case 2:
                         battleSystem.SetAttackStrategy(new EmotionAttack());
                         break;
-                    case "4":
+                    case 3:
                         if (player.Level >= 2)
                         {
                             Console.WriteLine($"{player.Name} uses Dream Shroud! {enemy.Name} is paralyzed in fear.");
@@ -103,7 +117,7 @@ namespace OOP_Kelompok2
                             Console.WriteLine("Dream Shroud is only available at level 2 or higher.");
                             continue;
                         }
-                    case "5":
+                    case 4:
                         Console.WriteLine("You escape from the battle, the shadows following closely...");
                         battleOngoing = false;
                         return;
@@ -156,15 +170,18 @@ namespace OOP_Kelompok2
 
             while (battleOngoing)
             {
-                Console.WriteLine("\nChoose an action:");
-                Console.WriteLine("1. Normal Attack");
-                Console.WriteLine("2. Critical Attack");
-                Console.WriteLine("3. Emotion Attack");
-                Console.WriteLine("4. Dream Shroud");
+                string prompt = "\nChoose an action:";
+                string[] options = {
+                    "Normal Attack",
+                    "Critical Attack",
+                    "Emotion Attack",
+                    "Dream Shroud (Unlocks at level 2)",
+                    "Escape"
+                    };
+                Menu dialogue = new Menu(prompt, options);
+                int choice = dialogue.Run();
 
-                string? choice = Console.ReadLine();
-
-                if (choice == "4" && player.Level >= 2)
+                if (choice == 3 && player.Level >= 2)
                 {
                     Console.WriteLine($"{player.Name} uses Dream Shroud! {boss.Name} is engulfed in a cloud of memories and stunned.");
                     boss.IsStunned = true;
@@ -173,13 +190,13 @@ namespace OOP_Kelompok2
                 {
                     switch (choice)
                     {
-                        case "1":
+                        case 0:
                             battleSystem.SetAttackStrategy(new NormalAttack());
                             break;
-                        case "2":
+                        case 1:
                             battleSystem.SetAttackStrategy(new CriticalAttack());
                             break;
-                        case "3":
+                        case 2:
                             battleSystem.SetAttackStrategy(new EmotionAttack());
                             break;
                         default:

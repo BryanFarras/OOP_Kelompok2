@@ -42,6 +42,7 @@ namespace OOP_Kelompok2
             Console.WriteLine("\n=== Player Status ===");
             player1.DisplayStatus();
 
+            Console.Clear();
             Story.Introduction(player1);
         }
 
